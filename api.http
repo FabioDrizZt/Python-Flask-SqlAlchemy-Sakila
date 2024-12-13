@@ -1,0 +1,93 @@
+# Hola mundo
+GET http://localhost:3000/
+
+###
+
+# Traer todos los actores
+GET http://localhost:3000/actors
+
+###
+
+# Crear un actor
+POST http://localhost:3000/actors
+Content-Type: application/json
+
+{
+  "first_name": "Tom",
+  "last_name": "Hanks"
+}
+
+###
+
+# Crear varios actores en bloque
+POST http://localhost:3000/actors/bulk
+Content-Type: application/json
+
+[
+  {
+    "first_name": "Scarlett",
+    "last_name": "Joganson"
+  },
+  {
+    "first_name": "Ricardo",
+    "last_name": "Darin"
+  },
+  {
+    "first_name": "Guillermo",
+    "last_name": "Francella"
+  }
+]
+
+###
+
+# Traer todos los peliculones
+GET http://localhost:3000/films
+
+###
+
+# Crear una peli
+POST http://localhost:3000/films
+Content-Type: application/json
+
+{
+  "title": "Forrest Gump", 
+  "description": "Forrest Gump, un joven sureño, tenaz e inocente, es protagonista de acontecimientos cruciales en la historia de los Estados Unidos.", 
+  "release_year": 1994
+}
+
+###
+
+# Asociar un actor a una peli
+POST http://localhost:3000/actors/239/films/1028
+
+###
+
+# Traer todas las pelis y sus actores asociados
+GET http://localhost:3000/films/actors
+
+###
+
+# Traer los actores de una película específica
+GET http://localhost:3000/films/1028/actors
+
+###
+
+# Actualizar una película
+PUT http://localhost:3000/films/1028
+Content-Type: application/json
+
+{
+  "title": "Forrest Gump - Updated",
+  "description": "Un joven sureño, tenaz e inocente, vive momentos cruciales de la historia de EE.UU.",
+  "release_year": 1995
+}
+
+###
+
+# Eliminar una película
+DELETE http://localhost:3000/films/1028
+
+###
+
+# Traer el actor y sus pelis
+GET http://localhost:3000/actors/3/films
